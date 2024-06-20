@@ -12,7 +12,7 @@ const StyledBackLink = styled(StyledLink)`
 
 export default function CreatePlacePage() {
   const router = useRouter();
-  // const { mutate } = useSWR("/api/places");
+  //const { mutate } = useSWR("/api/places");
 
   async function addPlace(event) {
     event.preventDefault();
@@ -33,6 +33,7 @@ export default function CreatePlacePage() {
 
     // mutate();
     event.target.reset();
+    router.push("/");
     console.log("new Place:", response);
   }
 
