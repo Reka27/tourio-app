@@ -17,7 +17,7 @@ export default function EditPage() {
     const updateData = Object.fromEntries(formData);
 
     const response = await fetch(`/api/places/${id}`, {
-      method: "PUT",
+      method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(updateData),
     });
