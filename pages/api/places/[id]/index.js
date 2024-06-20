@@ -16,4 +16,20 @@ export default async function handler(request, response) {
     }
     response.status(200).json(place);
   }
+  if (request.method === "PUT") {
+    const updatedData = request.body;
+    const place = await Place.findByIdAndUpdate(id, updatedData);
+
+    if (!place) {
+      return response
+        .status(404)
+        .json({ status: "Not found and could not update" });
+    }
+    response.status(200).json(`product ${id}updated!`);
+  }
+  if (request.method === "DELETE") {
+    await Place.findByIdAndDelete(id);
+
+    response.status(200).json(`place ${id} deleted!`);
+  }
 }
